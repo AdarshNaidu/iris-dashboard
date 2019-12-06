@@ -1,0 +1,364 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin:0;
+    padding:0;
+}
+
+.aboutHeader{
+    background-color: #495057;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    padding: 0% 5%;
+}
+
+.aboutHeader ul{
+    display: flex;
+    list-style-type: none;
+    color:white;
+    padding: 0%;
+    width: 96%;
+    margin: 5px 0;
+}
+
+.aboutHeader ul li{
+    padding: 10px 10px;
+    border-radius: 20px;
+    transition:background-color 0.3s;
+    cursor: pointer;
+    margin:0 10px;
+}
+
+.aboutHeader ul li:hover{
+    background-color: rgba(0,0,0,1);
+}
+.aboutHeader img{
+    max-width: 4%;
+}
+@media screen and (max-width:700px){
+    .aboutHeader{
+        display: none;
+    }
+}
+
+
+
+
+header{
+    margin: 0%;
+    padding:20px 5%;
+    display: flex;
+    align-items: center;
+    box-shadow:0px 0.5px 5px 1px rgb(218, 216, 216);
+}
+header .logo{
+    background-color: lightblue;
+    border-radius: 5px;
+    padding: 10px;
+}
+header ul{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    margin: 0%;
+}
+
+header ul li{
+    margin:0 20px;
+    position:relative;
+    cursor: pointer;
+}
+header ul li::after{
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 0%;
+    border-bottom: 3px solid purple;
+    transition:all 0.5s;
+}
+header ul li:hover::after{
+    width: 70%;
+}
+
+header ul li img{
+    width: 25px;
+    position: absolute;
+    left: -30px;
+    transform: translateY(-20%);
+}
+
+header input{
+    padding: 5px;
+    border-radius: 20px;
+    border-style: solid;
+}
+
+.emblem{
+    width: 60px;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+
+    padding: 0% 10px;
+    margin: 0% 5px;
+}
+
+.popUpCard{
+    visibility: hidden;
+    padding: 50px;
+    background-color: white;
+    box-shadow: 1px 2px 5px 1px gray;
+    text-align: center;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    opacity: 0;
+    transform: translateY(-30px);
+    transition:all 0.1s;
+    z-index: 10;
+    width: 40vw;
+    font-size: 1vw;
+}
+header ul li .arrow{
+    transition: 0.5s;
+}
+header ul li:hover .arrow{
+    transform: rotateZ(180deg);
+}
+
+header ul li:hover .popUpCard{
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition:  all 0.5s;
+}
+input{
+    transition: 0.5s;
+    width: 100px;
+}
+input:focus{
+    width: 200px;
+    color: purple;
+}
+@media screen and (max-width:700px){
+    header{
+        flex-flow: column;
+    }
+    header input{
+        margin: 10px auto;
+    }
+    .popUpCard{
+        width: 100%;
+        padding: 5px;
+    }
+    .popUpCard div{
+        display: block;
+        width: 100%;
+    }
+}
+
+
+.dashboard{
+    display: flex;
+    align-items: center;
+    padding: 10px 5%;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgrey;
+    /* perspective: 200px; */
+}
+
+.path{
+    border-left: 4px solid purple;
+    padding: 0 30px;
+}
+.telliris{
+    margin:0 30px 0 auto;
+}
+.telliris:hover i{
+    animation-name: animate;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+@keyframes animate{
+    30%{
+        transform: scale(1.5) rotateZ(20deg);
+    }
+    50%{
+        transform: scale(1.3) rotateZ(30deg);
+    }
+    70%{
+        transform: scale(1.4) rotateZ(20deg);
+    }
+}
+.frequentlyVisited{
+    padding: 10px;
+    background-color: #c0c0c0;
+    border-radius: 10px;
+    transform:perspective(200px) rotateX(0deg) rotateY(0deg);
+    transition: 0.5s;
+}
+.frequentlyVisited:hover{
+    transform:perspective(200px) rotateX(5deg) rotateY(10deg);
+}
+@media screen and (max-width:700px){
+    .dashboard{
+        flex-flow: column;
+    }
+    .telliris{
+        margin: 10px auto;
+    }
+    .path{
+        border: none;
+        border-bottom: 4px solid purple;
+    }
+}
+
+
+
+main{
+    width: 100%;  
+}
+
+.sideMenu{
+    width: 20%;
+    border: 1px solid lightgray;
+    padding: 30px;
+    float: left;
+}
+.sideMenu h2{
+    color: purple;
+}
+
+.sideMenu p{
+    margin: 3px;
+    margin-left: 15px;
+    transition: all 0.3s;
+    padding: 8px;
+    border-radius: 10px;
+}
+.sideMenu p:hover{
+    background-color: #dad4d4;
+}
+
+.mainContainer{
+    padding: 20px;
+    width: 70%;
+    float: left;
+    display: flex;
+    flex-flow: column;
+}
+
+.infoCellWrapper{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+.infoCell h1,.infoCell p{
+    margin: 0%;
+    padding: 0%;
+}
+
+.infoCell{
+    margin: 0% 20px 0 0;
+    border: 1px solid rgb(216, 216, 216);
+    padding: 10px;
+    flex: auto;
+    transition: all 0.3s;
+}
+.infoCell:hover{
+    box-shadow: 0 1px 15px 1px lightgray;
+}
+
+.buttonWrapper{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 30px;
+}
+
+.buttonWrapper a{
+    padding: 10px 15px;
+    overflow: hidden;
+    text-decoration: none;
+    color: gray;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.buttonWrapper a::before{
+    content:" ";
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 0%;
+    height: 0;
+    background-color: purple;
+    transition: all 0.5s;
+    border-radius: 50%;
+    z-index: -1;
+    transform: translate(-50%,-50%);
+}
+.buttonWrapper a:hover{
+    color: white;
+}
+.buttonWrapper a:hover::before{
+    width: 300%;
+    height:300%;
+}
+.attendancemore,.attendanceless{
+    position: relative;
+}
+.attendancemore::before{
+    content: "";
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+    height: 2px;
+    width: 94%;
+    z-index: 5;
+    background-color: green;
+}
+.attendanceless::before{
+    content: "";
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+    height: 2px;
+    width: 91%;
+    z-index: 5;
+    background-color: red;
+}
+
+
+@media screen and (max-width:700px){
+    .sideMenu{
+        width: 100%;
+    }
+    .mainContainer{
+        width: 100%;
+    }
+    .infoCellWrapper{
+        flex-flow: column;
+    }
+}
+
+
+footer{
+    text-align: center;
+    border-top: 1px solid rgb(235, 232, 232);
+    box-shadow: 0 -1px 15px 0px rgb(233, 233, 233);
+    clear: both;
+    padding: 20px;
+    color:rgb(185, 184, 184);
+}
+
